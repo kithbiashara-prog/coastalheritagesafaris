@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coastal Heritage Safaris - Luxury African Safari Adventures</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Garamond', 'Georgia', serif;
+            line-height: 1.6;
+            color: #2c2c2c;
+            overflow-x: hidden;
+        }
+
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+        }
+
+        header.scrolled {
+            background: rgba(0, 0, 0, 0.95);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 3rem;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #d4a574;
+            letter-spacing: 2px;
+            font-family: 'Georgia', serif;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 3rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-family: 'Arial', sans-serif;
+            font-size: 0.9rem;
+        }
+
+        .nav-links a:hover {
+            color: #d4a574;
+        }
+
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><defs><linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:%23ff7e5f;stop-opacity:1" /><stop offset="100%" style="stop-color:%23feb47b;stop-opacity:1" /></linearGradient></defs><rect fill="url(%23sky)" width="1920" height="1080"/><ellipse cx="1600" cy="200" rx="150" ry="150" fill="%23ff6b4a" opacity="0.8"/><path d="M 0 800 Q 400 750 800 800 T 1600 800 L 1920 800 L 1920 1080 L 0 1080 Z" fill="%23654321"/><circle cx="300" cy="750" r="40" fill="%232d5016"/><circle cx="320" cy="740" r="35" fill="%233d6625"/><circle cx="1200" cy="780" r="50" fill="%232d5016"/><circle cx="1230" cy="770" r="40" fill="%233d6625"/></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            padding: 2rem;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: #d4a574;
+            color: white;
+            text-decoration: none;
+            border-radius: 0;
+            font-weight: 600;
+            transition: all 0.4s;
+            border: 2px solid #d4a574;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: #d4a574;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 165, 116, 0.3);
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: transparent;
+            color: white;
+            text-decoration: none;
+            border: 2px solid white;
+            font-weight: 600;
+            transition: all 0.4s;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            margin-left: 1rem;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #2c2c2c;
+        }
+
+        section {
+            padding: 7rem 3rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            color: #2c2c2c;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.2rem;
+            margin-bottom: 4rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .destinations {
+            background: #f9f6f1;
+        }
+
+        .destinations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .destination-card {
+            position: relative;
+            height: 450px;
+            overflow: hidden;
+            cursor: pointer;
+            background: linear-gradient(135deg, #8b7355 0%, #5c4a3a 100%);
+        }
+
+        .destination-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.8) 100%);
+            z-index: 1;
+            transition: all 0.4s;
+        }
+
+        .destination-card:hover::before {
+            background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.6) 100%);
+        }
+
+        .destination-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem;
+            color: white;
+            z-index: 2;
+            transform: translateY(0);
+            transition: transform 0.4s;
+        }
+
+        .destination-card:hover .destination-content {
+            transform: translateY(-10px);
+        }
+
+        .destination-card h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .destination-card p {
+            font-size: 1rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .experiences {
+            background: white;
+        }
+
+        .experiences-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+        }
+
+        .experience-item {
+            text-align: center;
+            padding: 2rem;
+            transition: transform 0.3s;
+        }
+
+        .experience-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .experience-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            color: #d4a574;
+        }
+
+        .experience-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2c2c2c;
+            font-weight: 400;
+        }
+
+        .experience-item p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .featured-safari {
+            background: #1a1a1a;
+            color: white;
+        }
+
+        .featured-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .featured-image {
+            height: 500px;
+            background: linear-gradient(135deg, #d4a574 0%, #8b7355 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+        }
+
+        .featured-text h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .featured-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #ccc;
+        }
+
+        .featured-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .featured-list li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: #ccc;
+        }
+
+        .featured-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #d4a574;
+            font-weight: bold;
+        }
+
+        .testimonials {
+            background: #f9f6f1;
+        }
+
+        .testimonials-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .testimonial {
+            text-align: center;
+            padding: 3rem;
+            background: white;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .testimonial-text {
+            font-size: 1.3rem;
+            font-style: italic;
+            color: #555;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            font-size: 1.1rem;
+            color: #d4a574;
+            font-weight: 600;
+        }
+
+        .cta-section {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 600"><rect fill="%23654321" width="1920" height="600"/><circle cx="400" cy="200" r="100" fill="%23543210" opacity="0.5"/><circle cx="1500" cy="400" r="150" fill="%23543210" opacity="0.3"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 8rem 2rem;
+        }
+
+        .cta-section h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 4rem 3rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            color: #d4a574;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            font-weight: 400;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            line-height: 2;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: #d4a574;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            color: #666;
+        }
+
+        @media (max-width: 968px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .featured-content {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+                font-size: 0.8rem;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            .btn-secondary {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <nav>
+            <div class="logo">COASTAL HERITAGE SAFARIS</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#destinations">Destinations</a></li>
+                <li><a href="#experiences">Experiences</a></li>
+                <li><a href="#safaris">Safaris</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Discover Africa's Untamed Beauty</h1>
+            <p>Luxury safari experiences crafted for discerning travelers</p>
+            <div>
+                <a href="#contact" class="btn-primary">Plan Your Safari</a>
+                <a href="#destinations" class="btn-secondary">Explore</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="destinations" class="destinations">
+        <h2 class="section-title">Featured Destinations</h2>
+        <p class="section-subtitle">From the vast plains of the Serengeti to the pristine waterways of the Okavango Delta</p>
+        <div class="destinations-grid">
+            <div class="destination-card">
+                <div class="destination-content">
+                    <h3>Wasini Island</h3>
+                    <p>Explore the lush Okavango Delta and witness incredible wildlife in their natural habitat. Experience luxury lodges and exclusive game viewing.</p>
+                </div>
+            </div>
+            <div class="destination-card">
+                <div class="destination-content">
+                    <h3>Lamu</h3>
+                    <p>Witness the Great Migration in the Masai Mara and discover the magic of East Africa's most iconic landscapes and wildlife.</p>
+                </div>
+            </div>
+            <div class="destination-card">
+                <div class="destination-content">
+                    <h3>Malindi</h3>
+                    <p>Journey through the Serengeti and Ngorongoro Crater for unparalleled wildlife encounters in Africa's most spectacular settings.</p>
+                </div>
+            </div>
+            <div class="destination-card">
+                <div class="destination-content">
+                    <h3>Mombasa</h3>
+                    <p>Combine world-class safaris with wine country, coastal beauty, and vibrant culture in one extraordinary adventure.</p>
+                </div>
+            </div>
+            <div class="destination-card">
+                <div class="destination-content">
+                    <h3>Diani</h3>
+                    <p>Experience the thundering Victoria Falls and explore pristine wilderness areas teeming with elephants and big cats.</p>
+                </div>
+            </div>
+            <div class="destination-card">
+                <div class="destination-content">
+                    <h3>Shimba Hills</h3>
+                    <p>Discover surreal desert landscapes, towering sand dunes, and unique desert-adapted wildlife in this hauntingly beautiful country.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experiences" class="experiences">
+        <h2 class="section-title">Safari Experiences</h2>
+        <p class="section-subtitle">Immerse yourself in Africa's wilderness with our curated safari adventures</p>
+        <div class="experiences-container">
+            <div class="experience-item">
+                <div class="experience-icon">🦁</div>
+                <h3>Game Drives</h3>
+                <p>Expert-guided 4x4 safaris through pristine wilderness areas, tracking the Big Five and witnessing incredible wildlife behavior.</p>
+            </div>
+            <div class="experience-item">
+                <div class="experience-icon">🚶</div>
+                <h3>Walking Safaris</h3>
+                <p>Connect intimately with nature on guided walking safaris, learning about tracking, flora, and the smaller wonders of the bush.</p>
+            </div>
+            <div class="experience-item">
+                <div class="experience-icon">🛶</div>
+                <h3>Water Safaris</h3>
+                <p>Glide silently through waterways in traditional mokoros or boats, observing wildlife from a unique aquatic perspective.</p>
+            </div>
+            <div class="experience-item">
+                <div class="experience-icon">🏕️</div>
+                <h3>Mobile Camping</h3>
+                <p>Sleep under canvas in remote locations, moving camp to follow wildlife migrations and seasonal changes.</p>
+            </div>
+            <div class="experience-item">
+                <div class="experience-icon">✨</div>
+                <h3>Luxury Lodges</h3>
+                <p>Unwind in exquisite accommodations that blend seamlessly with nature, offering world-class service and comfort.</p>
+            </div>
+            <div class="experience-item">
+                <div class="experience-icon">📸</div>
+                <h3>Photography Safaris</h3>
+                <p>Capture stunning wildlife moments with specialized photography-focused safaris and expert guidance.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="safaris" class="featured-safari">
+        <div class="featured-content">
+            <div class="featured-image">🐘</div>
+            <div class="featured-text">
+                <h2>Lamu Luxury Safari</h2>
+                <p>Experience the ultimate African adventure with our signature Botswana luxury safari. This carefully crafted journey takes you through the pristine Okavango Delta and the vast Makgadikgadi Salt Pans.</p>
+                <ul class="featured-list">
+                    <li>10 days of unforgettable wildlife encounters</li>
+                    <li>Exclusive luxury lodges and camps</li>
+                    <li>Expert guides with decades of experience</li>
+                    <li>Private game drives and water safaris</li>
+                    <li>Witness incredible elephant herds and predators</li>
+                    <li>Personalized itinerary tailored to your interests</li>
+                </ul>
+                <a href="#contact" class="btn-primary">Enquire Now</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <h2 class="section-title">What Our Travelers Say</h2>
+        <div class="testimonials-container">
+            <div class="testimonial">
+                <p class="testimonial-text">"An absolutely magical experience. The attention to detail, the knowledge of our guides, and the stunning locations made this the trip of a lifetime. We'll never forget our time in the Okavango Delta."</p>
+                <p class="testimonial-author">— Sarah & Michael Thompson</p>
+            </div>
+            <div class="testimonial">
+                <p class="testimonial-text">"From start to finish, everything was perfect. The luxury lodges exceeded our expectations, and seeing lions on the hunt was something we'll treasure forever. Highly recommend!"</p>
+                <p class="testimonial-author">— Jennifer Martinez</p>
+            </div>
+            <div class="testimonial">
+                <p class="testimonial-text">"The team went above and beyond to create our perfect safari. Every detail was thoughtfully planned, and the experience was truly once-in-a-lifetime. We're already planning our next adventure!"</p>
+                <p class="testimonial-author">— David & Emma Chen</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="cta-section">
+        <h2>Begin Your African Adventure</h2>
+        <p>Let us create a bespoke safari experience tailored to your dreams. Contact our expert team today.</p>
+        <a href="mailto:info@coastalheritagesafaris.com" class="btn-primary">Contact Us</a>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Coastal Heritage Safaris</h3>
+                <p>Crafting extraordinary African safari experiences for discerning travelers since 2005.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Destinations</h3>
+                <a href="#">Lamu</a>
+                <a href="#">Malindi</a>
+                <a href="#">Mombasa</a>
+                <a href="#">Diani</a>
+                <a href="#">Shimba Hills</a>
+                <a href="#">Wasini Island</a>
+            </div>
+            <div class="footer-section">
+                <h3>Safari Types</h3>
+                <a href="#">Luxury Safaris</a>
+                <a href="#">Private Safaris</a>
+                <a href="#">Family Safaris</a>
+                <a href="#">Honeymoon Safaris</a>
+                <a href="#">Photography Safaris</a>
+                <a href="#">Mobile Camping</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: info@coastalheritagesafaris.com</p>
+                <p>Phone: +1 (555) 123-4567</p>
+                <p>Toll Free: 1-800-SAFARI-1</p>
+                <p>Available 24/7</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Coastal Heritage Safaris. All rights reserved. | Privacy Policy | Terms of Use</p>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</ht
